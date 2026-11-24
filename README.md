@@ -1,8 +1,21 @@
 # VoxTranscript - Offline AI
 
+<p align="center">
+  <img src="assets/Feature_graphic.jpg" alt="VoxTranscript - Offline AI Feature Graphic" width="100%" />
+</p>
+
 **Offline AI speech-to-text and voice keyboard. Transcribe audio & video without usage limits.**
 
 VoxTranscript is a fast, on-device Android application designed to convert voice, audio, and video files into accurate text and subtitles using local Whisper AI models—and let you dictate directly into any app without an internet connection. Built for low resource consumption and high efficiency, it requires no login, no cloud uploads, and has no transcription paywalls. Your audio stays strictly on your device.
+
+## Screenshots
+
+<p align="center">
+  <img src="assets/screenshots/Main-activity-sstfragment-1.jpg" alt="Speech to Text Home" width="23%" />
+  <img src="assets/screenshots/Main-activity-filefragment-2.jpg" alt="Saved Transcripts" width="23%" />
+  <img src="assets/screenshots/Main-activity-settings-fragment-3.jpg" alt="App Settings and Dictation" width="23%" />
+  <img src="assets/screenshots/ReaderActivity-1.jpg" alt="Transcript Reader and Playback" width="23%" />
+</p>
 
 ## Key Features
 
@@ -17,6 +30,7 @@ Choose the offline AI engine that best fits your device's hardware and accuracy 
 *   **Base Engine:** Recommended balance of speed and accuracy for clear lectures and interviews.
 *   **Small Engine:** High accuracy for detailed audio and varied speaking styles.
 *   **Medium Engine:** Maximum precision—best for complex audio, multiple accents, and noisy environments.
+*   **System Fallback:** Supports the device's built-in speech recognition alongside local AI models for instant zero-download use.
 
 ### Subtitle Controls, Editing & Export
 *   **Subtitle Timing & Duration Control:** Customize subtitle length and pause timing, optimized for Reels, Shorts, and long-form videos.
