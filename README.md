@@ -2,7 +2,7 @@
 
 **Offline AI speech-to-text and voice keyboard. Transcribe audio & video without usage limits.**
 
-VoxTranscript is a fast, on-device Android application designed to convert voice, audio, and video files into accurate text and subtitles using local Whisper AI models—and let you dictate directly into any app without an internet connection. Built for low resource consumption and high efficiency, it requires no login, no cloud uploads, and no monthly subscriptions. Your audio stays strictly on your device.
+VoxTranscript is a fast, on-device Android application designed to convert voice, audio, and video files into accurate text and subtitles using local Whisper AI models—and let you dictate directly into any app without an internet connection. Built for low resource consumption and high efficiency, it requires no login, no cloud uploads, and has no transcription paywalls. Your audio stays strictly on your device.
 
 ## Key Features
 
@@ -17,7 +17,6 @@ Choose the offline AI engine that best fits your device's hardware and accuracy 
 *   **Base Engine:** Recommended balance of speed and accuracy for clear lectures and interviews.
 *   **Small Engine:** High accuracy for detailed audio and varied speaking styles.
 *   **Medium Engine:** Maximum precision—best for complex audio, multiple accents, and noisy environments.
-*   **System Fallback:** Supports the device's built-in speech recognition alongside local AI models for instant zero-download use.
 
 ### Subtitle Controls, Editing & Export
 *   **Subtitle Timing & Duration Control:** Customize subtitle length and pause timing, optimized for Reels, Shorts, and long-form videos.
@@ -29,7 +28,7 @@ Choose the offline AI engine that best fits your device's hardware and accuracy 
 *   **High-Speed Background Queue:** Add multiple audio or video files to process sequentially using a full-power foreground service, with live progress and cancel controls in your notification bar.
 *   **Smart Playback:** In-app media player with time-synced text highlighting for effortless review.
 *   **Seamless Integration:** Share audio/video files directly from WhatsApp, Recorder, or any file manager using the "Open with VoxTranscript" option.
-*   **Zero Friction:** No account sign-up, no usage limits, and no cloud paywalls.
+*   **Zero Friction:** Free and unlimited transcription with no account sign-up and no cloud paywalls.
 
 ## Architecture & Tech Stack
 
