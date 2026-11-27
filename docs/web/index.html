@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0c12">
+  <meta name="description" content="VoxTranscript turns speech, audio and video into text on your Android device—with offline Whisper AI, no account, and no cloud uploads.">
+  <title>VoxTranscript — Your words, kept private</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0c0c12;
+      --surface: #13131c;
+      --surface-2: #191925;
+      --text: #f5f3fb;
+      --muted: #aaa7b8;
+      --line: rgba(255,255,255,.1);
+      --violet: #a78bfa;
+      --mint: #8debd0;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: "DM Sans", sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+    .nav { height: 78px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font: 800 18px Manrope, sans-serif; letter-spacing: -.6px; }
+    .mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; color: #101018; background: linear-gradient(145deg, var(--mint), #a4b5ff); font-size: 18px; box-shadow: 0 0 30px rgba(141,235,208,.2); }
+    .brand span:last-child { color: var(--muted); font-weight: 500; }
+    .navlinks { display: flex; align-items: center; gap: 28px; color: #c8c5d1; font-size: 14px; }
+    .navlinks a:hover, .text-link:hover { color: white; }
+    .nav-cta { border: 1px solid rgba(167,139,250,.4); border-radius: 999px; padding: 10px 16px; color: #e9e0ff; }
+    .hero { min-height: 640px; display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 42px; padding: 76px 0 88px; position: relative; }
+    .hero:before { content: ""; position: absolute; z-index: -1; width: 480px; height: 480px; border-radius: 50%; right: 6%; top: 70px; background: radial-gradient(circle, rgba(105,83,190,.2), rgba(28,26,54,.06) 58%, transparent 72%); filter: blur(8px); }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--mint); font-size: 12px; font-weight: 700; letter-spacing: 1.7px; text-transform: uppercase; }
+    .eyebrow:before { content: ""; width: 22px; height: 1px; background: currentColor; }
+    h1,h2,h3,p { margin-top: 0; }
+    h1,h2,h3 { font-family: Manrope, sans-serif; }
+    h1 { max-width: 650px; margin: 20px 0 20px; font-size: clamp(48px, 6.1vw, 76px); line-height: 1.03; letter-spacing: -4.6px; font-weight: 800; }
+    .gradient { background: linear-gradient(95deg, #f5f3fb 12%, #b9abff 62%, #8debd0 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { max-width: 560px; color: #c1bfca; font-size: 18px; line-height: 1.75; }
+    .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 13px; margin: 30px 0 25px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 13px 19px; border-radius: 12px; font-weight: 700; font-size: 14px; transition: transform .2s, border-color .2s, background .2s; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { color: #101018; background: linear-gradient(110deg, #a9f1da, #b6a5ff); box-shadow: 0 10px 32px rgba(143,130,226,.19); }
+    .button-quiet { border: 1px solid var(--line); color: #eceaf1; background: rgba(255,255,255,.03); }
+    .hero-note { display: flex; gap: 9px; align-items: center; color: #9693a3; font-size: 13px; }
+    .hero-note strong { color: #d6d2df; font-weight: 600; }
+    .hero-visual { position: relative; padding: 18px 0 18px 26px; }
+    .screen-frame { padding: 12px; border: 1px solid rgba(255,255,255,.14); border-radius: 27px; background: linear-gradient(145deg, rgba(255,255,255,.11), rgba(255,255,255,.025)); box-shadow: 0 35px 90px rgba(0,0,0,.5), 0 0 65px rgba(139,117,226,.12); transform: rotate(1deg); }
+    .screen-frame img { display: block; width: 100%; border-radius: 17px; object-fit: cover; }
+    .screen-badge { position: absolute; bottom: 38px; left: -3px; padding: 12px 16px; border: 1px solid rgba(255,255,255,.12); border-radius: 14px; background: rgba(22,22,32,.92); box-shadow: 0 12px 38px rgba(0,0,0,.3); font-size: 12px; color: #d2cfdb; backdrop-filter: blur(14px); }
+    .screen-badge strong { display: block; color: var(--mint); font-size: 13px; margin-bottom: 1px; }
+    .proof { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 22px 0; }
+    .proof-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+    .proof-item { color: #d7d4df; font-size: 13px; display: flex; align-items: center; gap: 9px; }
+    .proof-item b { color: var(--mint); font-size: 17px; }
+    section { padding: 105px 0; }
+    .section-head { max-width: 690px; margin-bottom: 42px; }
+    .section-head h2 { margin: 14px 0 13px; font-size: clamp(34px,4.3vw,50px); line-height: 1.13; letter-spacing: -2px; }
+    .section-head p { color: var(--muted); font-size: 16px; line-height: 1.75; }
+    .feature-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .feature { min-height: 230px; padding: 25px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.014)); }
+    .icon { width: 42px; height: 42px; display: grid; place-items: center; margin-bottom: 24px; border-radius: 13px; border: 1px solid rgba(167,139,250,.19); background: rgba(167,139,250,.1); color: #c9bbff; font-size: 19px; }
+    .feature h3 { margin-bottom: 9px; font-size: 18px; letter-spacing: -.4px; }
+    .feature p { margin-bottom: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .workflow { background: linear-gradient(180deg, transparent, rgba(30,28,49,.35), transparent); }
+    .workflow-row { display: grid; grid-template-columns: .82fr 1.18fr; gap: 58px; align-items: center; }
+    .steps { display: grid; gap: 11px; }
+    .step { display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; padding: 17px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,255,255,.025); }
+    .step-no { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; color: var(--mint); background: rgba(141,235,208,.09); font-size: 12px; font-weight: 700; }
+    .step h3 { margin: 2px 0 4px; font-size: 15px; }
+    .step p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+    .model-card { padding: 27px; border: 1px solid rgba(255,255,255,.1); border-radius: 20px; background: linear-gradient(145deg, #1c1b29, #12121a); }
+    .model-card h3 { margin: 0 0 8px; font-size: 19px; }
+    .model-card > p { color: var(--muted); font-size: 14px; }
+    .models { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 23px; }
+    .model { padding: 15px; border: 1px solid var(--line); border-radius: 13px; background: rgba(255,255,255,.025); }
+    .model strong { display: block; margin-bottom: 4px; color: #eeeaf9; font-size: 14px; }
+    .model span { color: #a6a2b2; font-size: 12px; line-height: 1.5; }
+    .privacy { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; padding: 34px; border: 1px solid rgba(141,235,208,.16); border-radius: 24px; background: radial-gradient(ellipse at 100% 0%, rgba(80,130,119,.12), transparent 50%), #12141a; }
+    .privacy h2 { margin: 12px 0; font-size: clamp(32px,4vw,45px); line-height: 1.12; letter-spacing: -1.8px; }
+    .privacy p { color: #b2b2be; font-size: 15px; }
+    .privacy-list { display: grid; gap: 12px; }
+    .privacy-list div { display: flex; align-items: center; gap: 12px; color: #e0dee8; font-size: 14px; }
+    .check { color: var(--mint); font-size: 16px; }
+    .screens { padding-top: 92px; }
+    .screen-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 13px; align-items: start; }
+    .shot { padding: 9px; border-radius: 17px; border: 1px solid var(--line); background: var(--surface); }
+    .shot img { display: block; width: 100%; aspect-ratio: .56; object-fit: cover; object-position: top; border-radius: 10px; }
+    .shot p { margin: 10px 3px 2px; color: #c6c2d0; font-size: 12px; }
+    .audience { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+    .pill { padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; color: #d4d0dc; font-size: 12px; background: rgba(255,255,255,.025); }
+    .download { padding: 74px 30px; border: 1px solid rgba(167,139,250,.22); border-radius: 25px; text-align: center; background: radial-gradient(ellipse at 50% 0%, rgba(121,101,207,.19), transparent 65%), #13121c; }
+    .download h2 { max-width: 650px; margin: 14px auto; font-size: clamp(34px,5vw,54px); letter-spacing: -2.3px; line-height: 1.12; }
+    .download p { max-width: 560px; margin: 0 auto 24px; color: var(--muted); }
+    .download .button { margin: 4px; }
+    footer { padding: 28px 0 40px; color: #92909d; font-size: 12px; }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; border-top: 1px solid var(--line); padding-top: 22px; }
+    .footer-links { display: flex; gap: 18px; }
+    @media(max-width: 850px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 68px 0 70px; gap: 24px; }
+      .hero-visual { max-width: 520px; width: 92%; justify-self: center; padding-left: 14px; }
+      .screen-badge { left: -12px; }
+      .workflow-row { grid-template-columns: 1fr; gap: 28px; }
+      .privacy { grid-template-columns: 1fr; gap: 20px; }
+    }
+    @media(max-width: 620px) {
+      .wrap { width: min(100% - 34px, var(--max)); }
+      .nav { height: 66px; }
+      .navlinks { gap: 13px; font-size: 12px; }
+      .navlinks a:not(.nav-cta) { display: none; }
+      .nav-cta { padding: 8px 12px; }
+      h1 { font-size: clamp(45px, 13vw, 62px); letter-spacing: -3px; }
+      .lead { font-size: 16px; }
+      section { padding: 75px 0; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature { min-height: initial; }
+      .feature .icon { margin-bottom: 16px; }
+      .models { grid-template-columns: 1fr 1fr; }
+      .privacy { padding: 24px 20px; }
+      .screen-grid { grid-template-columns: repeat(2,1fr); gap: 10px; }
+      .download { padding: 56px 19px; }
+      .footer-row { flex-direction: column; align-items: flex-start; }
+    }
+    @media(prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *:before, *:after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="brand" href="#top" aria-label="VoxTranscript home"><span class="mark" aria-hidden="true">V</span><span>Vox<span>Transcript</span></span></a>
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#features">Features</a><a href="#workflow">How it works</a><a href="#privacy">Privacy</a>
+      <a class="nav-cta" href="https://github.com/CodeBySonu95/VoxTranscript">View project ↗</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="wrap hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Speech to text, without the cloud</div>
+        <h1>Your words.<br><span class="gradient">Your device.</span></h1>
+        <p class="lead">Turn voice, audio and video into accurate text and subtitles with on-device Whisper AI. Dictate anywhere, work offline, and keep your recordings on your phone.</p>
+        <div class="actions">
+          <a class="button button-primary" href="https://play.google.com/store/apps/details?id=com.codebysonu.voxtranscript">↓&nbsp; Get it on Google Play</a>
+          <a class="button button-quiet" href="https://github.com/CodeBySonu95/VoxTranscript">Explore VoxTranscript ↗</a>
+        </div>
+        <div class="hero-note"><strong>Android app</strong><span>·</span><span>No account. No cloud uploads. No transcription paywalls.</span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="screen-frame"><img src="../../assets/screenshots/Main-activity-sstfragment-1.jpg" alt="VoxTranscript speech-to-text home screen" fetchpriority="high"></div>
+        <div class="screen-badge"><strong>Offline by design</strong>Speech recognition on your device</div>
+      </div>
+    </div>
+
+    <div class="proof"><div class="wrap proof-row">
+      <div class="proof-item"><b>◉</b> On-device Whisper AI</div><div class="proof-item"><b>⌁</b> Audio &amp; video transcription</div><div class="proof-item"><b>▤</b> TXT · PDF · SRT · VTT</div><div class="proof-item"><b>⌖</b> Offline voice keyboard</div>
+    </div></div>
+
+    <section id="features" class="wrap">
+      <div class="section-head"><div class="eyebrow">Made for real work</div><h2>From a quick thought<br>to a finished transcript.</h2><p>Capture speech, turn recordings into readable text, and move your words into the tools you already use—all from your Android device.</p></div>
+      <div class="feature-grid">
+        <article class="feature"><div class="icon">⌨</div><h3>Dictate wherever you type</h3><p>Use VoxTranscript Voice as an offline keyboard, or open the floating voice bubble for quick speech-to-text from other apps.</p></article>
+        <article class="feature"><div class="icon">◈</div><h3>Pick your Whisper engine</h3><p>Choose Tiny, Base, Small or Medium to balance speed and accuracy for your device, recording and listening conditions.</p></article>
+        <article class="feature"><div class="icon">▤</div><h3>Make subtitles your own</h3><p>Adjust subtitle timing, edit transcript lines and export as TXT, PDF, SRT or VTT without transcribing again.</p></article>
+        <article class="feature"><div class="icon">⇄</div><h3>Translate offline</h3><p>Turn foreign-language audio into English text with the app's offline auto-translate workflow.</p></article>
+        <article class="feature"><div class="icon">◷</div><h3>Process in the background</h3><p>Queue multiple audio or video files and follow progress with notification controls while processing continues.</p></article>
+        <article class="feature"><div class="icon">▶</div><h3>Review in sync</h3><p>Play recordings in-app with time-synced text highlighting, and share media straight from a file manager or another app.</p></article>
+      </div>
+    </section>
+
+    <section id="workflow" class="workflow">
+      <div class="wrap workflow-row">
+        <div><div class="eyebrow">Simple by design</div><h2 style="font-size:clamp(34px,4.3vw,50px);line-height:1.13;letter-spacing:-2px;margin:14px 0">A clear path from audio to text.</h2><p style="color:var(--muted);line-height:1.75">Bring in a recording or speak directly. VoxTranscript handles the transcription locally, then gives you practical ways to refine and use the result.</p>
+          <div class="steps">
+            <div class="step"><span class="step-no">01</span><div><h3>Speak or choose a file</h3><p>Dictate in the app, use the voice keyboard, or open a supported audio/video file with VoxTranscript.</p></div></div>
+            <div class="step"><span class="step-no">02</span><div><h3>Transcribe on your phone</h3><p>Select an offline Whisper model or use supported system speech recognition as a zero-download fallback.</p></div></div>
+            <div class="step"><span class="step-no">03</span><div><h3>Edit, review and export</h3><p>Correct lines, follow playback, adjust subtitle timing, then export in the format you need.</p></div></div>
+          </div>
+        </div>
+        <aside class="model-card"><div class="eyebrow">Choose your balance</div><h3>Four local Whisper models</h3><p>Start with what suits the task and the hardware in your pocket.</p><div class="models">
+          <div class="model"><strong>Tiny</strong><span>Fast, lightweight everyday dictation</span></div><div class="model"><strong>Base</strong><span>Recommended speed and accuracy balance</span></div><div class="model"><strong>Small</strong><span>Higher accuracy for detailed audio</span></div><div class="model"><strong>Medium</strong><span>Maximum precision for accents and noise</span></div>
+        </div></aside>
+      </div>
+    </section>
+
+    <section id="privacy" class="wrap">
+      <div class="privacy"><div><div class="eyebrow">Private, by default</div><h2>Your audio stays yours.</h2><p>VoxTranscript is built around on-device processing. The project says transcription works without account sign-up or cloud uploads, so your recordings and text stay on your phone.</p></div>
+        <div class="privacy-list"><div><span class="check">✓</span><span>Transcribe with local Whisper models</span></div><div><span class="check">✓</span><span>No account required to use the app</span></div><div><span class="check">✓</span><span>No cloud uploads for your audio</span></div><div><span class="check">✓</span><span>No transcription paywalls or usage limits</span></div></div>
+      </div>
+    </section>
+
+    <section class="wrap screens">
+      <div class="section-head"><div class="eyebrow">A look inside</div><h2>Made to fit your day.</h2><p>Capture speech, manage saved transcripts, adjust dictation settings and revisit recordings with the built-in reader.</p></div>
+      <div class="screen-grid">
+        <div class="shot"><img src="../../assets/screenshots/Main-activity-sstfragment-1.jpg" alt="VoxTranscript speech-to-text screen" loading="lazy"><p>Speech to text</p></div>
+        <div class="shot"><img src="../../assets/screenshots/Main-activity-filefragment-2.jpg" alt="VoxTranscript saved transcripts list" loading="lazy"><p>Your transcript library</p></div>
+        <div class="shot"><img src="../../assets/screenshots/Main-activity-settings-fragment-3.jpg" alt="VoxTranscript settings and dictation controls" loading="lazy"><p>Settings &amp; dictation</p></div>
+        <div class="shot"><img src="../../assets/screenshots/ReaderActivity-1.jpg" alt="VoxTranscript transcript reader and playback" loading="lazy"><p>Read along with playback</p></div>
+      </div>
+      <div class="audience"><span class="pill">Creators · Reels &amp; Shorts</span><span class="pill">Students · lectures</span><span class="pill">Journalists · interviews</span><span class="pill">Teams · meeting notes</span></div>
+    </section>
+
+    <section class="wrap" id="download"><div class="download"><div class="eyebrow">Start listening less. Get more done.</div><h2>Let your ideas flow.<br><span class="gradient">Keep them yours.</span></h2><p>Download VoxTranscript for Android, or visit the project hub for updates, support and feature requests.</p><a class="button button-primary" href="https://play.google.com/store/apps/details?id=com.codebysonu.voxtranscript">↓&nbsp; Download on Google Play</a><a class="button button-quiet" href="https://github.com/CodeBySonu95/VoxTranscript/issues">Support &amp; feedback ↗</a></div></section>
+  </main>
+
+  <footer><div class="wrap footer-row"><a class="brand" href="#top"><span class="mark" aria-hidden="true">V</span><span>Vox<span>Transcript</span></span></a><span>Built for speed, efficiency, and unlimited offline productivity.</span><div class="footer-links"><a class="text-link" href="https://github.com/CodeBySonu95/VoxTranscript">Project hub</a><a class="text-link" href="https://github.com/CodeBySonu95/VoxTranscript/issues">Support</a></div></div></footer>
+</body>
+</html>
